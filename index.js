@@ -4,7 +4,10 @@ const client = new Client();
 const commands = require('./src/commands.js')
 
 require('dotenv').config();
-console.log('bot iniciado')
+client.on("ready", async () =>  {
+  console.log('bot iniciado')
+  client.user.setActivity('a vida fora',"PLAYING")
+})
 client.on('message', commands)
 
 client.login(process.env.TOKEN)
