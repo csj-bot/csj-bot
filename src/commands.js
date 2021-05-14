@@ -8,7 +8,6 @@ module.exports = (message) => {
   const args = content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   
-  console.log(content)
   try {
     require(`./commands/${command}.js`)(client,message,args)
   } catch(err) {
