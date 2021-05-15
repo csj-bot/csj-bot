@@ -9,7 +9,7 @@ module.exports = (message) => {
   const command = args.shift().toLowerCase();
   
   try {
-    require(`./commands/${command}.js`)(client,message,args)
+    require(`./commands/${command}.js`)({client,message,args})
   } catch(err) {
     console.log(err)
   }
