@@ -1,4 +1,5 @@
-const prefix = "!!"
+const prefix = '!!';
+
 const client = require('../index.js')
 
 module.exports = (message) => {
