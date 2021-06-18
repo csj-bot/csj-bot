@@ -1,12 +1,18 @@
 const { Client } = require("discord.js");
-const client = new Client(); 
+const msToHMS = require('./src/msToHMS.js')
+const client = new Client();
 
 const commands = require('./src/commands.js');
 
 require('dotenv').config();
-client.on("ready", async () =>  {
-	console.log('Iniciando o bot..');
-	client.user.setActivity("Yes baby, i'm on discord","PLAYING");
+console.log('Iniciando o bot..');
+client.on("ready", async () => {
+  console.log('bot iniciado');
+  function status() {
+    client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
+    setInterval(status, 30000)
+  }
+  status()
 });
 
 client.on('message', commands);
