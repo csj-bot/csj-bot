@@ -9,8 +9,10 @@ Temos muitas ideias de recursos para o bot! Você pode nos ajudar sugerindo nova
 ## Contribuindo com códigos
 
 Para contribuir com códigos é fácil! Basta realizar o processo padrão de [instalação e recursos do Discord.js](https://blog.usejournal.com/how-can-you-create-and-deploy-your-own-discord-bot-using-javascript-node-js-e6b0fed9952d) e fazer um fork do [repositório oficial](https://github.com/csj-bot/csj-bot). 
-Já o processo de teste do bot você precisará de um [token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)(na sessão "Fetching your bot's token") 
+Já o processo de teste do bot você precisará de um [token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)(na sessão "Fetching your bot's token").
+
 Crie um arquivo ".env" na pasta do projeto e adicione o Token do seu bot lá:
+
 ![image](https://user-images.githubusercontent.com/72351688/122563784-00243780-d01b-11eb-8f5d-9929f87a35ec.png)
 
 E realizar a execução do csj-bot por meio de:
