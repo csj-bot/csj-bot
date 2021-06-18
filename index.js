@@ -1,15 +1,17 @@
-const { Client } = require("discord.js")
+const { Client } = require("discord.js");
 const client = new Client(); 
 
-const commands = require('./src/commands.js')
+const commands = require('./src/commands.js');
 
 require('dotenv').config();
 client.on("ready", async () =>  {
-  console.log('bot iniciado')
-  client.user.setActivity('Cyberwar',"PLAYING")
-})
-client.on('message', commands)
+	console.log('Iniciando o bot..');
+	client.user.setActivity("Yes baby, i'm on discord","PLAYING");
+});
 
-client.login(process.env.TOKEN)
+client.on('message', commands);
 
-module.exports = client
+client.login(process.env.TOKEN);
+
+module.exports = client;
+
