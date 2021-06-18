@@ -1,4 +1,4 @@
-# csj-bot, o bot oficial do servidor Crie Seus Jogos!
+# csj-bot, o bot oficial do servidor Crie Seus Jogos!!!
 Um bot realizado de membros para membros do servidor CSJ sobre Game Development e Programação.
 
 ## TODO
