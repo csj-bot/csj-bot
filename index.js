@@ -10,7 +10,7 @@ client.on("ready", async () => {
   console.log('bot iniciado');
   function status() {
     client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
-    setInterval(status, 30000)
+    setTimeout(status, 30000)
   }
   status()
 });
