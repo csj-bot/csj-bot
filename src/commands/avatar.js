@@ -1,3 +1,9 @@
+/**
+ *  Função: exibir foto de perfil de quem solicitar o comando
+ *  
+ *  !!avatar
+ */
+
 const { MessageAttachment } = require('discord.js');
 
 const avatar = function({message}){
