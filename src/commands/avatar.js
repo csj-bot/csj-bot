@@ -2,7 +2,7 @@ const { MessageAttachment } = require("discord.js");
  
 module.exports = {
 
-    //info
+    //info 
     name: 'avatar',
     description: "Exibir foto de perfil",
     aliases: [ "foto", "perfil" ],
