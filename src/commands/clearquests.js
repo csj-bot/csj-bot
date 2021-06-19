@@ -1,9 +1,18 @@
-module.exports = async ({message, args, configs}) => {
-	if (typeof configs["questions"] == 'undefined') {
-		message.channel.send("Não há questões para limpar!");
-		return;
-	}
-	configs["questions"] = undefined;
+module.exports = {
+    name: "clearquests",
+    description: "Remover todas as perguntas",
+    aliases: [ "limparperguntas", "removerperguntas" ],
+    usage: "!!clearquests",
+    cooldown: 5,
+    permissions: [ "MANAGE_MESSAGES" ],
 
-	message.channel.send("Questões resetadas com sucesso!");
-}
+    execute(client, message, args) {
+		if (typeof configs["questions"] == 'undefined') {
+			message.channel.send("Não há questões para limpar!");
+			return;
+		}
+		configs["questions"] = undefined;
+	
+		message.channel.send("Questões resetadas com sucesso!");
+    },
+};
