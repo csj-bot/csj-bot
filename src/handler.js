@@ -1,5 +1,5 @@
 const handler = require('wax-command-handler')
-
+const { readdirSync } = require('fs')
 const commandConfig = new handler.CommandConfig("!!",
     true,
     "Espere %TIME% segundos para executar %CMD%",
