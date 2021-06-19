@@ -13,7 +13,7 @@
     cooldown: 5,
     description: "retorna o repositorio do projeto",
     execute(client,message) {
-        message.channel.send("https://github.com/csj-bot-csj-bot");
+        message.channel.send("https://github.com/csj-bot/csj-bot");
 
     },
 };
