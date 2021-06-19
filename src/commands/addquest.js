@@ -1,7 +1,8 @@
 module.exports = {
-        name: "test",
-        description: "testing commands",
-        aliases: [ "t", "guei" ],
+        name: "addquest",
+        description: "adicionar uma pergunta/reflexão",
+        aliases: [ "pergunta", "perguntar" ],
+        usage: "!!addquest <pergunta>",
         cooldown: 5,
 
         execute(client, message, args) {
