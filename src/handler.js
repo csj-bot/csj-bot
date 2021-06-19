@@ -2,8 +2,8 @@ const handler = require('wax-command-handler')
 const { readdirSync } = require('fs')
 const commandConfig = new handler.CommandConfig("!!",
     true,
-    "Espere %TIME% segundos para executar %CMD%",
-    "Voce nao tem a permissao %PERM% para executar esse comando");
+    "Espere **%TIME%** segundos para executar %CMD%",
+    "Voce nao tem a permissao ``%PERM%`` para executar esse comando");
 
 handler.setup(commandConfig);
 
