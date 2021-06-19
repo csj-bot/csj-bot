@@ -1,20 +1,17 @@
-/**
- *  Função: exibir foto de perfil de quem solicitar o comando
- *  
- *  !!avatar
- *  !!avatar @<membro_tag>
- */
+const { MessageAttachment } = require("discord.js");
+ 
+module.exports = {
 
- module.exports = {
-
+    //info
     name: 'avatar',
+    description: "Exibir foto de perfil",
     aliases: [ "foto", "perfil" ],
     cooldown: 5,
 
-    execute({message}) {
+    execute(client, message, args) {
 
         //Identificando usuário a qual pegar avatar
-        const user = await message.mentions.users.first() || message.author;
+        const user = message.mentions.users.first() || message.author;
         
         //Pegar avatar e enviar como anexo
         const image = user.displayAvatarURL();
