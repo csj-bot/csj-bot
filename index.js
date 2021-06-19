@@ -1,28 +1,44 @@
 const { Client } = require("discord.js");
-const msToHMS = require('./src/msToHMS.js')
-const client = new Client();
+const handler = require('wax-command-handler')
+const { readdirSync } = require('fs')
 require('dotenv').config();
 
-const commands = require('./src/commands.js');
-const handler = require('./src/handler.js')
+const client = new Client();
+
+const msToHMS = require('./src/msToHMS.js')
+
 const db = require('./src/database/connection.js')
 const prefix = "!!"
 
 client.config = {}
 
-const commandConfig = new handler.CommandConfig(client, prefix,
-    true,
-    "Espere **%TIME%** segundos para executar %CMD%",
-    "Voce nao tem a permissao ``%PERM%`` para executar esse comando");
-
-handler.setup(commandConfig);
-
 
 console.log('Iniciando o bot..');
 
 client.on("ready", async () => {
-    console.log('bot iniciado');
+    const commandConfig = new handler.CommandConfig(
+        client, 
+        prefix,
+        true,
+        "Espere **%TIME%** segundos para executar %CMD%",
+        "Voce nao tem a permissao ``%PERM%`` para executar esse comando");
+    
+    handler.setup(commandConfig);
+    
+    handler.useSlashHandler();
 
+    for (const file of readdirSync(__dirname + "/src/commands").filter(file => file.endsWith('.js'))) {
+
+        const command = require(`./src/commands/${file}`);
+        if (!command.name) continue;
+    
+        handler.addCommand(command);
+    
+        if(command.slash) handler.addSlashCommand(command);
+    }
+    
+    console.log('bot iniciado');
+    
     function status() {
         client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
 
@@ -31,7 +47,13 @@ client.on("ready", async () => {
     status()
 });
 
-client.on('message', commands);
+client.on('message', message => {
+    handler.messageReceived(message);
+});
+
+client.ws.on("INTERACTION_CREATE", async data => {
+    handler.wsInteractionReceived(data);
+})
 
 client.login(process.env.TOKEN);
 
