@@ -1,9 +1,8 @@
  module.exports = {
-
-    //info
     name: 'kick',
     description: "Expulsar membro (cujo pode retornar)",
     aliases: [ "expulsar", "expulse", "kickar" ],
+    usage: "!!kick @<member_id> <motivo>",
     cooldown: 5,
     permissions: [ "KICK_MEMBERS" ],
 
