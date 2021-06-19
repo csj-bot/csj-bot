@@ -1,4 +1,19 @@
 
+
+# csj-bot, o bot oficial do servidor Crie Seus Jogos!!!
+
+Um bot realizado de membros para membros do servidor CSJ sobre Game Development e Programação.
+
+
+
+
+## TODO
+
+Temos muitas ideias de recursos para o bot! Você pode nos ajudar sugerindo novas ideias ou até mesmo implementando elas!
+
+[Link para nosso Trello](https://trello.com/b/omGqawnB/csj-bot).
+
+[Acesse o servidor oficial do CSJ no Discord!](https://discord.gg/VDGd2zA)
 ## Contribuindo com códigos
 
 Para contribuir com códigos é fácil! Basta realizar o processo padrão de [instalação e recursos do Discord.js](https://blog.usejournal.com/how-can-you-create-and-deploy-your-own-discord-bot-using-javascript-node-js-e6b0fed9952d) e fazer um fork do [repositório oficial](https://github.com/csj-bot/csj-bot). 
