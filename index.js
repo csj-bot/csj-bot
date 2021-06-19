@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const commands = require('./src/commands.js');
 const handler = require('./src/handler.js')
-
+const db = require('./src/database/connection.js')
 const prefix = "!!"
 
 client.config = {}
@@ -21,14 +21,14 @@ handler.setup(commandConfig);
 console.log('Iniciando o bot..');
 
 client.on("ready", async () => {
-  console.log('bot iniciado');
-  
-  function status() {
-    client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
-    
-    setTimeout(status, 30000)
-  }
-  status()
+    console.log('bot iniciado');
+
+    function status() {
+        client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
+
+        setTimeout(status, 30000)
+    }
+    status()
 });
 
 client.on('message', commands);
