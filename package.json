@@ -24,6 +24,6 @@
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "nodemon": "^2.0.7",
-    "wax-command-handler": "^1.0.4"
+    "wax-command-handler": "^1.0.5"
   }
 }
