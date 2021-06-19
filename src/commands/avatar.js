@@ -14,7 +14,7 @@
     execute({message}) {
 
         //Identificando usuário a qual pegar avatar
-        const user = await message.mentions.users.first() || message.author;
+        const user = message.mentions.users.first() || message.author;
         
         //Pegar avatar e enviar como anexo
         const image = user.displayAvatarURL();
