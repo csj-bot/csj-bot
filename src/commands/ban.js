@@ -1,13 +1,8 @@
-/**
- *  Função: Banir um membro
- * 
- *  !!ban @<membro> <esclarecer o motivo>
- */
-
  module.exports = {
     name: "ban",
     description: "Banir membro",
     aliases: [ "banir", "bane" ],
+    usage: "!!ban @<member_id> <motivo>",
     cooldown: 5,
     permissions: [ "BAN_MEMBERS" ],
 
@@ -40,8 +35,3 @@
     },
 };
 
-const ban = function({message, args}){
-
-}
-
-module.exports = ban;
