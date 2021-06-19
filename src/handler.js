@@ -7,8 +7,8 @@ const commandConfig = new handler.CommandConfig("!!",
 
 handler.setup(commandConfig);
 
-for (const file of readdirSync(__dirname + "/src/commands").filter(file => file.endsWith('.js'))) {
-    const command = require(`./src/commands/${file}`);
+for (const file of readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))) {
+    const command = require(`./commands/${file}`);
     handler.addCommand(command);
 }
 
