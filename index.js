@@ -6,7 +6,11 @@ require('dotenv').config();
 const commands = require('./src/commands.js');
 const handler = require('./src/handler.js')
 
-const commandConfig = new handler.CommandConfig("!!",
+const prefix = "!!"
+
+client.config = {}
+
+const commandConfig = new handler.CommandConfig(client, prefix,
     true,
     "Espere **%TIME%** segundos para executar %CMD%",
     "Voce nao tem a permissao ``%PERM%`` para executar esse comando");
