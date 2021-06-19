@@ -8,14 +8,11 @@
 const { MessageAttachment } = require('discord.js');
 
 module.exports = async ({message, args, client}) =>{
-    console.log(message.content);
-
-
+    
+    //Identificando usuário a qual pegar avatar
     const user = await message.mentions.users.first() || message.author;
-    console.log(args[0]);
-    console.log(user);
-
-
+    
+    //Pegar avatar e enviar como anexo
     const image = user.displayAvatarURL();
     const anexo = new MessageAttachment(image);
     message.channel.send(`aqui seu avatar em anexo:`, anexo);
