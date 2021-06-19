@@ -9,7 +9,7 @@
 
     name: 'avatar',
     aliases: [ "foto", "perfil" ],
-    cooldown: 5,
+    cooldown: 5
 
     execute({message}) {
 
