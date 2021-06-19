@@ -1,16 +1,13 @@
-/** 
- *  Função: Kickar um membro
- *
- *  !!kick @<membro_tag> <esclarecer o motivo>
- */
-
  module.exports = {
+
+    //info
     name: 'kick',
+    description: "Expulsar membro (cujo pode retornar)",
     aliases: [ "expulsar", "expulse", "kickar" ],
     cooldown: 5,
     permissions: [ "KICK_MEMBERS" ],
 
-    execute({message}) {    
+    execute(client, message, args) {    
         //Identificar membro a ser kickado
         const user_kicked   = message.mentions.users.first();
         const member_kicked = message.guild.member(user_kicked);
