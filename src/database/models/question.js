@@ -1,7 +1,7 @@
 const db = require('../connection')
 
 const questionSchema = new db.Schema({
-    user: {
+    userId: {
         type: String,
         require: true
     },
@@ -12,6 +12,10 @@ const questionSchema = new db.Schema({
     data: {
         type: Date,
         default: Date.now
+    },
+    guildId: {
+        type: String,
+        required: true
     }
 })
 

@@ -1,5 +1,5 @@
-const { MessageAttachment } = require("discord.js");
- 
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
 
     //info 
@@ -12,11 +12,14 @@ module.exports = {
 
         //Identificando usuário a qual pegar avatar
         const user = message.mentions.users.first() || message.author;
-        
-        //Pegar avatar e enviar como anexo
-        const image = user.displayAvatarURL();
-        const anexo = new MessageAttachment(image);
-        message.channel.send(`aqui seu avatar em anexo:`, anexo);
 
+        //Pegar avatar e enviar como anexo
+        const image = user.displayAvatarURL({ size: 512 });
+
+        const embed = new MessageEmbed()
+            .setAuthor("Avatar de " + message.author.tag, image)
+            .setImage(image);
+
+        message.channel.send(embed);
     },
 };
