@@ -40,4 +40,5 @@ Após isso, seu bot já deve estar sendo executado nos servidores na qual ele fo
 ## Dependências
 [discord.js](https://www.npmjs.com/package/discord.js)
 [wax-command-handler](https://www.npmjs.com/package/wax-command-handler)
+[wax-logger](https://www.npmjs.com/package/wax-logger)
 [mongoose](https://www.npmjs.com/package/mongoose)
