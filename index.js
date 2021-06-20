@@ -21,7 +21,7 @@ logger.logInfo(mainSender, "Iniciando...", true);
 client.on("ready", async () => {
     const commandConfig = new handler.CommandConfig(
         client,
-        "!",
+        process.env.PREFIX,
         true,
         "Espere **%TIME%** segundos para executar `%CMD%`",
         "Voce nao tem a permissao `%PERM%` para executar esse comando",
