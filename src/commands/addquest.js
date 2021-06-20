@@ -1,3 +1,5 @@
+const QuestionSchema = require("../database/models/question");
+
 module.exports = {
         name: "addquest",
         description: "adicionar uma pergunta/reflexão",
@@ -6,14 +8,14 @@ module.exports = {
         cooldown: 5,
 
         execute(client, message, args) {
-                if (typeof client.configs["questions"] == 'undefined'){
-                        client.configs["questions"] = [];
-                }       
-	        let question = "";
-                for (i in args) {
-		        question += " " + args[i];
-                }                                        
-	        client.configs["questions"].push(question);
-                const bot_message = message.channel.send("Sua questão foi adicionada ao repositório de questões!");
+                const question = new QuestionSchema({
+                        userId: message.author.id,
+                        question: args.join(" "),
+                        guildId: message.guild.id
+                });
+
+                question.save();
+
+                message.channel.send("Sua questão foi adicionada ao repositório de questões!");
         },
 };

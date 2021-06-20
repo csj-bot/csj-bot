@@ -1,4 +1,4 @@
- module.exports = {
+module.exports = {
     name: "ban",
     description: "Banir membro",
     aliases: [ "banir", "bane" ],
@@ -13,25 +13,19 @@
         const member_banned = message.guild.member(user_banned);
 
         //Identificar o motivo
-        let the_reason = `(by: ${message.author.tag})`;
-        for (i in args) {
-            if (i != 0){
-                the_reason += " " + args[i];
-            }
-        }  
+        let the_reason = `(by: ${message.author.tag}) ${args.join(" ")}`;
 
         //Banir
-        member_banned
-        .ban({
+        member_banned.ban({
             reason: the_reason,
         })
-        .then(() => {
-            message.reply(`O membro ${user_banned.tag} foi banido`);
-        })
-        .catch(err => {
-            message.reply(`não foi possível banir o membro ${user_banned.tag}`);
-            console.error(err);
-        });
+            .then(() => {
+                message.reply(`O membro ${user_banned.tag} foi banido`);
+            })
+            .catch(err => {
+                message.reply(`não foi possível banir o membro ${user_banned.tag}`);
+                console.error(err);
+            });
     },
 };
 

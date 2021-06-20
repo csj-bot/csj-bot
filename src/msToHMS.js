@@ -1,8 +1,8 @@
 module.exports = (ms) => {
-    let seg = ms / 1000
-    let hr = parseInt(seg / 3600)
+    let seg = ms * 0.001
+    let hr = parseInt(seg * 0.00027777777)
     seg = seg % 3600
-    let min = parseInt(seg / 60)
+    let min = parseInt(seg * 0.01666666666)
     seg = seg % 60
 
     let txt = 'faz '
@@ -15,7 +15,7 @@ module.exports = (ms) => {
     }
     txt += Math.floor(seg) + ' segundos'
 
-    if (seg == 0) {
+    if (seg === 0) {
         txt = ' agora'
     }
     return txt
