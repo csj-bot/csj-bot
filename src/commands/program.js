@@ -25,7 +25,7 @@ function convertDate(date, text) {
         {
             format:/^[0-9]{2}[a-z]{1}/,
             date(text) {
-                let num = text.match(/ˆ[0-9]{2}/)[0]
+                let num = text.match(/[0-9]{2}/)[0]
                 let letter = text.match(/[a-z]{1}/)[0]
                 if(letter === 'h') {
                     date.setHours(num)
