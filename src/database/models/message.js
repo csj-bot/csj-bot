@@ -5,8 +5,8 @@ const messageSchema = new db.Schema({
         type: String,
         require: true
     },
-    data: {
-        type: Date,
+    date: {
+        type: Number,
         require: true
     },
     guildId: {
