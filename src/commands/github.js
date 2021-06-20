@@ -16,4 +16,7 @@
         message.channel.send("https://github.com/csj-bot/csj-bot");
 
     },
+    slash(client, handler, data) {
+        handler.postSlashMessage(data, "https://github.com/csj-bot/csj-bot")
+    }
 };
