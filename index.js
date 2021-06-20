@@ -1,55 +1,54 @@
+const handler = require('wax-command-handler');
+const msToHMS = require('./src/msToHMS.js');
+const db = require('./src/database/connection.js');
+
+const { readdirSync } = require('fs');
 const { Client } = require("discord.js");
-const handler = require('wax-command-handler')
-const { readdirSync } = require('fs')
+
 require('dotenv').config();
 
 const client = new Client();
-
-const msToHMS = require('./src/msToHMS.js')
-
-const db = require('./src/database/connection.js')
-const prefix = "!!"
+const prefix = "ceira!"
 
 client.config = {}
-
 
 console.log('Iniciando o bot..');
 
 client.on("ready", async () => {
     const commandConfig = new handler.CommandConfig(
-        client, 
+        client,
         prefix,
         true,
         "Espere **%TIME%** segundos para executar %CMD%",
         "Voce nao tem a permissao ``%PERM%`` para executar esse comando",
         "O uso correto desse comando e `%USAGE%`");
-    
+
     handler.setup(commandConfig);
-    
+
     handler.useSlashHandler();
+    handler.useDefaultHelp(handler);
 
     for (const file of readdirSync(__dirname + "/src/commands").filter(file => file.endsWith('.js'))) {
 
         const command = require(`./src/commands/${file}`);
         if (!command.name) continue;
-    
+
         handler.addCommand(command);
-    
-        handler.useDefaultHelp(handler);
-    
-    
-        if(command.slash) handler.addSlashCommand(command);
+
+        // quando adicionar ou modificar algum `slash command`
+        //if(command.slash) handler.addSlashCommand(command);
+
         if(command.slash) handler.listSlashCommand(command);
     }
-    
+
     console.log('bot iniciado');
-    
+
     function status() {
         client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
 
-        setTimeout(status, 30000)
+        setTimeout(status, 30000);
     }
-    status()
+    status();
 });
 
 client.on('message', message => {
@@ -63,4 +62,3 @@ client.ws.on("INTERACTION_CREATE", async data => {
 client.login(process.env.TOKEN);
 
 module.exports = client;
-

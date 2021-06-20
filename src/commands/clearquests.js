@@ -1,3 +1,5 @@
+const QuestionSchema = require("../database/models/question");
+
 module.exports = {
     name: "clearquests",
     description: "Remover todas as perguntas",
@@ -6,13 +8,9 @@ module.exports = {
     cooldown: 5,
     permissions: [ "MANAGE_MESSAGES" ],
 
-    execute(client, message, args) {
-		if (typeof configs["questions"] == 'undefined') {
-			message.channel.send("Não há questões para limpar!");
-			return;
-		}
-		configs["questions"] = undefined;
-	
-		message.channel.send("Questões resetadas com sucesso!");
+    async execute(client, message, args) {
+        await QuestionSchema.deleteMany({ "guildId": message.guild.id });
+
+        message.channel.send("Questões resetadas com sucesso!");
     },
 };
