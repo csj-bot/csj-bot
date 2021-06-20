@@ -1,3 +1,5 @@
+const messageSchema = require('../database/models/message')
+
 module.exports = {
     name: "program",
     aliases: ["programar", "marcar"],
@@ -6,9 +8,9 @@ module.exports = {
     cooldown: 10,
     execute(client, message, args) {
         let unformatDate = args[0].toLowerCase()
-        let msg = ''
+        let msgText = ''
         for (let i = 1; i < args.length; i++) {
-            msg += args[i]
+            msgText += args[i]
         }
         let date = new Date()
         let timestamp = convertDate(date, unformatDate)
@@ -16,6 +18,15 @@ module.exports = {
             message.reply('data invalida')
             return
         }
+        
+        let msg = new messageSchema({
+            message: msgText,
+            guildId: message.guild.id,
+            date: timestamp
+        })
+        
+        msg.save()
+        
         message.channel.send(timestamp)
     }
 }
