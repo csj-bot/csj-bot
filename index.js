@@ -35,6 +35,7 @@ client.on("ready", async () => {
         handler.addCommand(command);
     
         if(command.slash) handler.addSlashCommand(command);
+        if(command.slash) handler.listSlashCommand(command);
     }
     
     console.log('bot iniciado');
