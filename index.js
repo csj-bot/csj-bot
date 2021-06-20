@@ -8,7 +8,7 @@ const { Client } = require("discord.js");
 require('dotenv').config();
 
 const client = new Client();
-const prefix = "ceira!"
+const prefix = "!!"
 
 client.config = {}
 
@@ -38,7 +38,7 @@ client.on("ready", async () => {
         // quando adicionar ou modificar algum `slash command`
         //if(command.slash) handler.addSlashCommand(command);
 
-        if(command.slash) handler.listSlashCommand(command);
+        if (command.slash) handler.listSlashCommand(command);
     }
 
     console.log('bot iniciado');

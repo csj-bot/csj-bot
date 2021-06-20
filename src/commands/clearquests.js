@@ -3,10 +3,10 @@ const QuestionSchema = require("../database/models/question");
 module.exports = {
     name: "clearquests",
     description: "Remover todas as perguntas",
-    aliases: [ "limparperguntas", "removerperguntas" ],
+    aliases: ["limparperguntas", "removerperguntas"],
     usage: "!!clearquests",
     cooldown: 5,
-    permissions: [ "MANAGE_MESSAGES" ],
+    permissions: ["MANAGE_MESSAGES"],
 
     async execute(client, message, args) {
         await QuestionSchema.deleteMany({ "guildId": message.guild.id });
