@@ -8,7 +8,7 @@ const { Client } = require("discord.js");
 require('dotenv').config();
 
 const client = new Client();
-const prefix = "!!"
+const prefix = "!"
 
 client.config = {}
 
