@@ -25,6 +25,7 @@
     "dotenv": "^9.0.2",
     "mongoose": "^5.12.14",
     "nodemon": "^2.0.7",
-    "wax-command-handler": "^1.0.8"
+    "wax-command-handler": "^1.0.8",
+    "wax-logger": "^1.0.1"
   }
 }
