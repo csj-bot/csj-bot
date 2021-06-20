@@ -11,12 +11,12 @@ module.exports = {
             msg += args[i]
         }
         let date = new Date()
-        let ndate = convertDate(date, unformatDate)
-        if(!ndate) {
+        let timestamp = convertDate(date, unformatDate)
+        if(!timestamp) {
             message.reply('data invalida')
             return
         }
-        message.channel.send(ndate)
+        message.channel.send(timestamp)
     }
 }
 
@@ -36,13 +36,23 @@ function convertDate(date, text) {
         {
             format:/^[0-9]{1}[a-z]{1}/,
             date(text) {
-
+                let num = text.match(/[0-9]{1}/)[0]
+                let letter = text.match(/[a-z]{1}/)[0]
+                if (letter === 'h') {
+                    date.setHours(num)
+                    return date.getTime()
+                }
             }
         },
         {
             format:/^[0-9]{2}:[0-9]{2}/,
             date(text) {
-
+                nums = text.split(/:/)
+                
+                console.log(nums)
+                date.setHours(+nums[0])
+                date.setMinutes(+nums[1])
+                return date.getTime()
             }
         }
     ]
@@ -54,7 +64,9 @@ function convertDate(date, text) {
         var regex = text.match(format.format)
 
         if (regex === null) continue
-        return format.date(text)
+        let timestamp = format.date(text)
+        if(timestamp < Date.now()) return false
+        return timestamp
     }
 
     return false
