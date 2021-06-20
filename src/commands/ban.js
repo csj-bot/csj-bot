@@ -1,15 +1,15 @@
 module.exports = {
     name: "ban",
     description: "Banir membro",
-    aliases: [ "banir", "bane" ],
+    aliases: ["banir", "bane"],
     usage: "!!ban @<member_id> <motivo>",
     cooldown: 5,
-    permissions: [ "BAN_MEMBERS" ],
+    permissions: ["BAN_MEMBERS"],
 
     execute(client, message, args) {
 
         //Identificar membro a ser banido
-        const user_banned   = message.mentions.users.first();
+        const user_banned = message.mentions.users.first();
         const member_banned = message.guild.member(user_banned);
 
         //Identificar o motivo
@@ -17,8 +17,8 @@ module.exports = {
 
         //Banir
         member_banned.ban({
-            reason: the_reason,
-        })
+                reason: the_reason,
+            })
             .then(() => {
                 message.reply(`O membro ${user_banned.tag} foi banido`);
             })
@@ -28,4 +28,3 @@ module.exports = {
             });
     },
 };
-

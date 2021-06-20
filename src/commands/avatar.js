@@ -5,7 +5,7 @@ module.exports = {
     //info 
     name: 'avatar',
     description: "Exibir foto de perfil",
-    aliases: [ "foto", "perfil" ],
+    aliases: ["foto", "perfil"],
     cooldown: 5,
 
     execute(client, message, args) {

@@ -1,14 +1,14 @@
 module.exports = {
     name: 'kick',
     description: "Expulsar membro (cujo pode retornar)",
-    aliases: [ "expulsar", "expulse", "kickar" ],
+    aliases: ["expulsar", "expulse", "kickar"],
     usage: "!!kick @<member_id> <motivo>",
     cooldown: 5,
-    permissions: [ "KICK_MEMBERS" ],
+    permissions: ["KICK_MEMBERS"],
 
     execute(client, message, args) {
         //Identificar membro a ser kickado
-        const user_kicked   = message.mentions.users.first();
+        const user_kicked = message.mentions.users.first();
         const member_kicked = message.guild.member(user_kicked);
 
         //Identificar o motivo
