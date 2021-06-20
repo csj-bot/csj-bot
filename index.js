@@ -21,7 +21,8 @@ client.on("ready", async () => {
         prefix,
         true,
         "Espere **%TIME%** segundos para executar %CMD%",
-        "Voce nao tem a permissao ``%PERM%`` para executar esse comando");
+        "Voce nao tem a permissao ``%PERM%`` para executar esse comando",
+        "O uso correto desse comando e `%USAGE%`");
     
     handler.setup(commandConfig);
     
