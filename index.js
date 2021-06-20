@@ -1,23 +1,27 @@
+const logger = require("wax-logger");
 const handler = require('wax-command-handler');
 const msToHMS = require('./src/msToHMS.js');
 const db = require('./src/database/connection.js');
 
 const { readdirSync } = require('fs');
 const { Client } = require("discord.js");
+const { mainSender } = require("./src/logSenders");
 
 require('dotenv').config();
 
 const client = new Client();
-const prefix = "!"
 
-client.config = {}
 
-console.log('Iniciando o bot..');
+
+
+client.logger = logger;
+
+logger.logInfo(mainSender, "Iniciando...", true);
 
 client.on("ready", async () => {
     const commandConfig = new handler.CommandConfig(
         client,
-        prefix,
+        "ceira!",
         true,
         "Espere **%TIME%** segundos para executar `%CMD%`",
         "Voce nao tem a permissao `%PERM%` para executar esse comando",
@@ -41,7 +45,7 @@ client.on("ready", async () => {
         if (command.slash) handler.listSlashCommand(command);
     }
 
-    console.log('bot iniciado');
+    logger.logInfo(mainSender, "Bot Iniciado", true);
 
     function status() {
         client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
