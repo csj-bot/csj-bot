@@ -1,26 +1,26 @@
 const QuestionSchema = require("../database/models/question");
 
 module.exports = {
-	name: "viewquests",
-	description: "ver questões adicionadas",
-	aliases: [ "verquestoes", "questoes", "quests" ],
-	usage: "!!viewquests",
-	cooldown: 5,
+    name: "viewquests",
+    description: "ver questões adicionadas",
+    aliases: ["verquestoes", "questoes", "quests"],
+    usage: "!!viewquests",
+    cooldown: 5,
 
-	async execute(client, message, args) {
-		const questions = QuestionSchema.find().cursor();
+    async execute(client, message, args) {
+        const questions = QuestionSchema.find().cursor();
 
-		let lgt = questions.readableLength.clamp(0, 9);
-		let msg = "```\n";
+        let lgt = questions.readableLength.clamp(0, 9);
+        let msg = "```\n";
 
-		for (let i = 0, doc = await questions.next(); i < lgt, doc !== null; i++, doc = await questions.next()) {
-			msg += (i + 1) + ": " + doc.get("question") + "\n";
-		}
+        for (let i = 0, doc = await questions.next(); i < lgt, doc !== null; i++, doc = await questions.next()) {
+            msg += (i + 1) + ": " + doc.get("question") + "\n";
+        }
 
-		msg += "```"
+        msg += "```"
 
-		message.channel.send(msg);
-	},
+        message.channel.send(msg);
+    },
 };
 
 // ESTOURO DA PILHA :sunglases:
@@ -37,5 +37,5 @@ module.exports = {
  * @type Number
  */
 Number.prototype.clamp = function(min, max) {
-	return Math.min(Math.max(this, min), max);
+    return Math.min(Math.max(this, min), max);
 };

@@ -26,6 +26,8 @@ Crie um arquivo ".env" na pasta do projeto e adicione o Token do seu bot lá:
 
 ![image](https://user-images.githubusercontent.com/72351688/122563784-00243780-d01b-11eb-8f5d-9929f87a35ec.png)
 
+Para funcionar o banco de dados, precisa adicionar a url de um mongodb no .env em "DBURL".
+
 E realizar a execução do csj-bot por meio de:
 
 ```bash

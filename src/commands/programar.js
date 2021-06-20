@@ -1,3 +1,3 @@
-module.exports = async ({message,args}) => {
-  //esquece por enquanto
+module.exports = async ({ message, args }) => {
+    //esquece por enquanto
 }
