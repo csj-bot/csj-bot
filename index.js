@@ -34,6 +34,9 @@ client.on("ready", async () => {
     
         handler.addCommand(command);
     
+        handler.useDefaultHelp(handler);
+    
+    
         if(command.slash) handler.addSlashCommand(command);
         if(command.slash) handler.listSlashCommand(command);
     }
