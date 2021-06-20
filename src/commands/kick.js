@@ -1,3 +1,5 @@
+const { kickSender } = require("../logSenders");
+
 module.exports = {
     name: 'kick',
     description: "Expulsar membro (cujo pode retornar)",
@@ -23,7 +25,7 @@ module.exports = {
             })
             .catch(err => {
                 message.reply(`não foi possível kickar o membro ${user_kicked.tag}`);
-                console.error(err);
+                client.logger.logError(kickSender, err, true);
             });
     },
 };
