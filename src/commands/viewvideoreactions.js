@@ -3,12 +3,12 @@
  * bot mandar enviar mensagem de elogio quando um vídeo for postado no chat #videos-novos
  */
 
- const videoreaction = require("../database/models/videoreaction");
+ const videoreaction = require("../database/models/vdreact");
 
  module.exports = {
-    name: "viewvideoreactions",
+    name: "viewvdreacts",
     description: "ver as reações à videos novos",
-    aliases: ["viewvideoreaction", "viewvideoreacts", "viewvideoreact"],
+    aliases: ["viewvdreact"],
     usage: "!!viewvideoreactions",
     cooldown: 5,
     permissions: ["MANAGE_MESSAGES"],
