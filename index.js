@@ -57,6 +57,10 @@ client.on("ready", async () => {
 
 client.on('message', message => {
     handler.messageReceived(message);
+
+    for (const file of readdirSync(__dirname + "/src/events").filter(file => file.endsWith('.js'))){
+        require("./src/events/" + file)(message);
+    }
 });
 
 client.ws.on("INTERACTION_CREATE", async data => {
