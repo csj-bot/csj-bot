@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
+const logger = require("wax-logger");
+const { mainSender } = require("../logSenders");
 
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
-db.on('error', function(err) {
-    const logger = require("wax-logger");
-    const { mainSender } = require("../logSenders");
+db.on('error', (err) => {
     logger.logWarn(mainSender, `err: DataBase NAO conectada: ${err}`, true);
 });
-db.once('open', function() {
-    const logger = require("wax-logger");
-    const { mainSender } = require("../logSenders");
+db.once('open', () => {
     logger.logInfo(mainSender, "DataBase conectada", true);
 });
 
