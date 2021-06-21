@@ -14,11 +14,18 @@
     permissions: ["MANAGE_MESSAGES"],
 
     execute(client, message, args) {
+
         videoreaction.find(function (err, reactions) {
             if (err) return console.error($`viewvideoreactions: mongoose:{err}`);
+
+            let all_reactions_text = "```c\n";
             for (n in reactions){
-                message.channel.send(`${reactions[n].reaction}\n`);
+                all_reactions_text += `${n}: | ${reactions[n].reaction}\n`;
             }
+            all_reactions_text += "```";
+
+            message.channel.send(all_reactions_text);
         })
+
     },
 };
