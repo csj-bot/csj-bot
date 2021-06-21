@@ -3,14 +3,14 @@
  * bot mandar enviar mensagem de elogio quando um vídeo for postado no chat #videos-novos
  */
 
-const videoreaction = require("../database/models/videoreaction");
+const videoreaction = require("../database/models/vdreact");
 
 
  module.exports = {
-    name: "addvideoreaction",
-    description: "adicionar reações aos videos novos",
-    aliases: ["addvideoreaction"],
-    usage: "!!addvideoreact <nova reação>",
+    name: "addvdreact",
+    description: "adicionar reações de videos novos",
+    aliases: ["addvdreact", "addvdreacts"],
+    usage: "!!addvdreact <nova_reação>",
     cooldown: 5,
     permissions: ["MANAGE_MESSAGES"],
 
@@ -23,6 +23,6 @@ const videoreaction = require("../database/models/videoreaction");
             if (err) return console.log(`addvideoreaction: mongoose: ${err}`);
         });
 
-        message.channel.send("Uma nova reação de vídeo foi adicionada aos repositórios!");
+        message.channel.send('Uma nova reação de vídeo "' + args.join(" ") +  '"foi adicionada aos repositórios!');
     },
 };

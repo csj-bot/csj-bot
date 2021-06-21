@@ -17,7 +17,7 @@ module.exports = {
         const image = user.displayAvatarURL({ size: 512 });
 
         const embed = new MessageEmbed()
-            .setAuthor("Avatar de " + message.author.tag, image)
+            .setAuthor("Avatar de " + message.mentions.users.first().tag, image)
             .setImage(image);
 
         message.channel.send(embed);
