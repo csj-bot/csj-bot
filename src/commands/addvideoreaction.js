@@ -7,7 +7,7 @@ const videoreaction = require("../database/models/videoreaction");
 
 
  module.exports = {
-    name: "viewvideoreaction",
+    name: "addvideoreaction",
     description: "adicionar reações aos videos novos",
     aliases: ["addvideoreaction"],
     usage: "!!addvideoreact <nova reação>",
