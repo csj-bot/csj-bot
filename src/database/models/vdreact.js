@@ -20,4 +20,5 @@ const videoreaction = db.model('videoreaction', videoreaction_schema);
 const vdr_events = db.model('vdr_events', vdr_events_schema);
 
 module.exports = videoreaction;
+exports.vdreaction = videoreaction;
 exports.vdr_events = vdr_events;
