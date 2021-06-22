@@ -11,6 +11,7 @@ module.exports = async (message) => {
     vdreaction.find(async function(err, reactions) {
         if (err) return console.error($`viewvideoreactions: mongoose:{err}`);
 
+        //por enquanto não reage a bot, mas tem que reagir à lorita!!!
         if (message.channel.id == chatID && !message.author.bot)
             message.channel.send(reactions[count++].reaction);
 
