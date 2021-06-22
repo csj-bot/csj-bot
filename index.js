@@ -45,7 +45,10 @@ client.on("ready", async () => {
         if (command.slash) handler.listSlashCommand(command);
     }
 
-    logger.logInfo(mainSender, "Bot Iniciado", true);
+    for (const file of readdirSync(__dirname + "/src/ready").filter(file => file.endsWith('.js'))){
+        require("./src/ready/" + file)();
+    }
+
 
     function status() {
         client.user.setActivity("Iniciado " + msToHMS(client.uptime), "PLAYING");
