@@ -5,8 +5,7 @@
 
 const videoreaction = require("../database/models/vdreact");
 
-
- module.exports = {
+module.exports = {
     name: "addvdreact",
     description: "adicionar reações de videos novos",
     aliases: ["addvdreact", "addvdreacts"],
@@ -16,13 +15,13 @@ const videoreaction = require("../database/models/vdreact");
 
     execute(client, message, args) {
         const reaction = new videoreaction({
-            reaction: args.join(" "),
-        });
+            reaction: args.join(" ")
+        })
 
         reaction.save(function (err, reaction) {
-            if (err) return console.log(`addvideoreaction: mongoose: ${err}`);
-        });
+            if (err) return console.log(`addvideoreaction: mongoose: ${err}`)
+        })
 
-        message.channel.send('Uma nova reação de vídeo "' + args.join(" ") +  '"foi adicionada aos repositórios!');
-    },
-};
+        message.channel.send(`Uma nova reação de vídeo ${args.join(" ")} foi adicionada aos repositórios!`)
+    }
+}

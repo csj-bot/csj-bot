@@ -11,15 +11,15 @@ module.exports = {
     execute(client, message, args) {
 
         //Identificando usuário a qual pegar avatar
-        const user = message.mentions.users.first() || message.author;
+        const user = message.mentions.users.first() || message.author
 
         //Pegar avatar e enviar como anexo
-        const image = user.displayAvatarURL({ size: 512 });
+        const image = user.displayAvatarURL({ size: 512 })
 
         const embed = new MessageEmbed()
-            .setAuthor("Avatar de " + message.mentions.users.first().tag, image)
-            .setImage(image);
+            .setAuthor(`Avatar de ${message.mentions.users.first().tag}`, image)
+            .setImage(image)
 
-        message.channel.send(embed);
-    },
-};
+        message.channel.send(embed)
+    }
+}

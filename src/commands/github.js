@@ -13,10 +13,9 @@ module.exports = {
     description: "retorna o repositorio do projeto",
 
     execute(client, message) {
-        message.channel.send("https://github.com/csj-bot/csj-bot");
-
+        message.channel.send("https://github.com/csj-bot/csj-bot")
     },
     slash(client, handler, data) {
         handler.postSlashMessage(data, "https://github.com/csj-bot/csj-bot")
     }
-};
+}

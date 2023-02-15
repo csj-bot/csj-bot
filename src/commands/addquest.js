@@ -1,4 +1,4 @@
-const QuestionSchema = require("../database/models/question");
+const QuestionSchema = require("../database/models/question")
 
 module.exports = {
     name: "addquest",
@@ -12,10 +12,10 @@ module.exports = {
             userId: message.author.id,
             question: args.join(" "),
             guildId: message.guild.id
-        });
+        })
 
-        question.save();
+        question.save()
 
-        message.channel.send("Sua questão foi adicionada ao repositório de questões!");
-    },
-};
+        message.channel.send("Sua questão foi adicionada ao repositório de questões!")
+    }
+}

@@ -1,4 +1,4 @@
-const { kickSender } = require("../logSenders");
+const { kickSender } = require("../logSenders")
 
 module.exports = {
     name: 'kick',
@@ -10,22 +10,20 @@ module.exports = {
 
     execute(client, message, args) {
         //Identificar membro a ser kickado
-        const user_kicked = message.mentions.users.first();
-        const member_kicked = message.guild.member(user_kicked);
+        const user_kicked = message.mentions.users.first()
+        const member_kicked = message.guild.member(user_kicked)
 
         //Identificar o motivo
-        let the_reason = `(by: ${message.author.tag}) ${args.join(" ")}`;
-
-        // gustavo tu adora dar o cuzinho com laco for desnecessario ne?
+        let the_reason = `(by: ${message.author.tag}) ${args.join(" ")}`
 
         //Kickar
         member_kicked.kick(the_reason)
             .then(() => {
-                message.reply(`o membro ${user_kicked.tag} foi kickado`);
+                message.reply(`o membro ${user_kicked.tag} foi kickado`)
             })
             .catch(err => {
-                message.reply(`não foi possível kickar o membro ${user_kicked.tag}`);
-                client.logger.logError(kickSender, err, true);
-            });
-    },
-};
+                message.reply(`não foi possível kickar o membro ${user_kicked.tag}`)
+                client.logger.logError(kickSender, err, true)
+            })
+    }
+}

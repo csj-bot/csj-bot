@@ -1,4 +1,4 @@
-const QuestionSchema = require("../database/models/question");
+const QuestionSchema = require("../database/models/question")
 
 module.exports = {
     name: "clearquests",
@@ -9,8 +9,8 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
 
     async execute(client, message, args) {
-        await QuestionSchema.deleteMany({ "guildId": message.guild.id });
+        await QuestionSchema.deleteMany({ "guildId": message.guild.id })
 
-        message.channel.send("Questões resetadas com sucesso!");
-    },
-};
+        message.channel.send("Questões resetadas com sucesso!")
+    }
+}

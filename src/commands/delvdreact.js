@@ -1,6 +1,7 @@
-const videoreaction = require("../database/models/vdreact");
-const logger = require("wax-logger");
-const { mainSender } = require("../logSenders");
+const videoreaction = require("../database/models/vdreact")
+const logger = require("wax-logger")
+
+const { mainSender } = require("../logSenders")
 
 module.exports = {
     name: "delvdreaction",
@@ -11,14 +12,14 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
 
     async execute(client, message, args) {
-        
-        videoreaction.find(async (err, reactions) => {
-            if (err) return logger.logError(mainSender, `err: deletevideoreaction: ${err}`, true);
 
-            for (n in args){
-                await videoreaction.findOneAndDelete({ "reaction" : reactions[args[n]].reaction })
-                await message.channel.send(`VideoReaction "${reactions[args[n]].reaction}" foi deletada`);
+        videoreaction.find(async (err, reactions) => {
+            if (err) return logger.logError(mainSender, `err: deletevideoreaction: ${err}`, true)
+
+            for (n in args) {
+                await videoreaction.findOneAndDelete({ "reaction": reactions[args[n]].reaction })
+                await message.channel.send(`VideoReaction "${reactions[args[n]].reaction}" foi deletada`)
             }
-        });
-    },
-};
+        })
+    }
+}

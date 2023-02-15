@@ -8,23 +8,23 @@ module.exports = {
 
     execute(client, message, args) {
 
-        //Identificar membro a ser banido
-        const user_banned = message.mentions.users.first();
-        const member_banned = message.guild.member(user_banned);
+        // Identificar membro a ser banido
+        const user_banned = message.mentions.users.first()
+        const member_banned = message.guild.member(user_banned)
 
-        //Identificar o motivo
-        let the_reason = `(by: ${message.author.tag}) ${args.join(" ")}`;
+        // Identificar o motivo
+        let the_reason = `(by: ${message.author.tag}) ${args.join(" ")}`
 
-        //Banir
+        // Banir
         member_banned.ban({
-                reason: the_reason,
-            })
+            reason: the_reason,
+        })
             .then(() => {
-                message.reply(`O membro ${user_banned.tag} foi banido`);
+                message.reply(`O membro ${user_banned.tag} foi banido`)
             })
             .catch(err => {
-                message.reply(`não foi possível banir o membro ${user_banned.tag}`);
-                console.error(err);
-            });
-    },
-};
+                message.reply(`não foi possível banir o membro ${user_banned.tag}`)
+                console.error(err)
+            })
+    }
+}
