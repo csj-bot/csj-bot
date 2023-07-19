@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
+  },
+  "name": "csj_bot2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
