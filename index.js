@@ -40,7 +40,7 @@ for (const file of commandFiles){
 // Login do bot
 client.once(Events.ClientReady, c => {
 	console.log(`É OS GURI, BOT RODANDO ${c.user.tag}`)
-    client.user.setActivity("Oferencimento ", { type: ActivityType.Playing })
+    client.user.setActivity("com bits e bytes! ", { type: ActivityType.Playing })
 });
 client.login(TOKEN)
 

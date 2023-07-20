@@ -39,7 +39,7 @@ module.exports = {
         .setName("docs")
         .setDescription("Acesse a documentação da tecnologia que quiser"),
 
-    async execute(interaction) {
+    async execute(client, interaction) {
         await interaction.reply({content: "Selecione uma tecnologia abaixo:", components: [row]})
     }
 }
