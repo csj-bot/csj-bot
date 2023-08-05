@@ -1,14 +1,15 @@
-const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder, Component } = require("discord.js")
+const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require("discord.js")
 
 const row = new ActionRowBuilder()
     .addComponents(
         new StringSelectMenuBuilder()
-            .setCustomId("select")
+            .setCustomId("docs")
             .setPlaceholder("Nenhuma linguagem selecionada")
-            .addOptions({
-                label: "javascript",
-                description: "Veja a documentação de Javascript",
-                value: "javascript"
+            .addOptions(
+                {
+                    label: "javascript",
+                    description: "Veja a documentação de Javascript",
+                    value: "javascript"
                 },
                 {
                     label: "python",
@@ -29,8 +30,7 @@ const row = new ActionRowBuilder()
                     label: "C++",
                     description: "Veja a documentação de C++",
                     value: "c++"
-                },
-
+                }
             )
     )
 
@@ -38,8 +38,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("docs")
         .setDescription("Acesse a documentação da tecnologia que quiser"),
+    async execute({ client, interaction }) {
 
-    async execute(interaction) {
-        await interaction.reply({content: "Selecione uma tecnologia abaixo:", components: [row]})
+        interaction.reply({ content: "Selecione uma tecnologia abaixo:", components: [row] })
     }
 }
