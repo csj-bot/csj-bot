@@ -8,5 +8,6 @@ const docs = {
 
 module.exports = async ({ client, interaction, dados }) => {
 
-    interaction.reply({ content: docs[dados] })
+    // Atualiza a interação com o card da tecnologia escolhida
+    interaction.update({ content: docs[dados] })
 }
